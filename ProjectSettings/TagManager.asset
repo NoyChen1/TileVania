@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - Climbing
   - Player
   - Background
-  - 
-  - 
-  - 
-  - 
+  - Bouncing
+  - Enemies
+  - Hazards
+  - Bullets
   - 
   - 
   - 
@@ -52,6 +53,12 @@ TagManager:
     locked: 0
   - name: Climb
     uniqueID: 468118515
+    locked: 0
+  - name: Hazards
+    uniqueID: 2210217595
+    locked: 0
+  - name: Enemy
+    uniqueID: 3675493903
     locked: 0
   - name: Player
     uniqueID: 2545098185
