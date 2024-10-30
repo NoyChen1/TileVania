@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5F;
     [SerializeField] float climbSpeed = 5F;
-    [SerializeField] State state = State.Idle;
+    [SerializeField] State state;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawn;
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D myFeetColider;
     float gravityAtStart;
 
-    enum State
+    public enum State
     {
         Idle,
         Run,
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        state = State.Idle;
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
@@ -128,13 +129,10 @@ public class PlayerMovement : MonoBehaviour
             state = State.Dead;
             animator.SetTrigger("Dying");
             myRigidBody.velocity = deathKick;
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
+
     }
 
-    void OnFire(InputValue value)
-    {
-        if (state == State.Dead) { return; }
-        Instantiate(bullet, bulletSpawn.position, transform.rotation);
-    }
-
+    public State getState() { return state; }  
 }
