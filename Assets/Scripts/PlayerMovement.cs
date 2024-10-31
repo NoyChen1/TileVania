@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             state = State.Run;
         }
         else if(myRigidBody.gravityScale == 0 && 
-            myRigidBody.velocity.y != 0)
+            (myRigidBody.velocity.y == 5 || myRigidBody.velocity.y == -5))
         {
             state = State.Climb;
         }

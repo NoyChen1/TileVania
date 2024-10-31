@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
+    [SerializeField] float speed = 5;
+    [SerializeField] float lifeTime;
+    [SerializeField] AudioClip hurtSFX;
 
-    private float direction;
-    private bool hit;
-    [SerializeField] private float lifeTime;
+    float direction;
+    bool hit;
 
-    private BoxCollider2D boxCollider;
-    private Animator animator;
+    BoxCollider2D boxCollider;
+    Animator animator;
 
     private void Awake()
     {
@@ -39,6 +40,11 @@ public class Projectile : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         hit = true;
         boxCollider.enabled = false;
+        if (collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position);
+        }
         animator.SetTrigger("Explode");
     }
 

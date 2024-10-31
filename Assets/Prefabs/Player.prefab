@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3188890769913869657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101165825582275279}
+  m_Layer: 8
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2101165825582275279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188890769913869657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.83, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4172084785092922542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5863540424072952513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7944621890737555855}
+  m_Layer: 8
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7944621890737555855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5863540424072952513}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.83, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4172084785092922542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7377013411471083752
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +109,7 @@ GameObject:
   - component: {fileID: 2787195640063824586}
   - component: {fileID: 6105052166820192506}
   - component: {fileID: 3713578194308871362}
-  - component: {fileID: 93861394782541578}
+  - component: {fileID: 3772818034842845586}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -69,6 +131,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4328762636413485217}
+  - {fileID: 7944621890737555855}
+  - {fileID: 2101165825582275279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4109278899278909543
@@ -254,7 +318,7 @@ MonoBehaviour:
   state: 0
   deathKick: {x: 10, y: 20}
   bullet: {fileID: 6050613798459530782, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
-  bulletSpawn: {fileID: 4328762636413485217}
+  bulletSpawn: {fileID: 2101165825582275279}
 --- !u!61 &3713578194308871362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -300,7 +364,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4732132, y: 0.08721471}
   m_EdgeRadius: 0
---- !u!114 &93861394782541578
+--- !u!114 &3772818034842845586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,8 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d3d5f1dcc0e284884dc85f32cc09f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCoolDown: 3
-  firePoint: {fileID: 4328762636413485217}
+  attackCoolDown: 1
+  firePoint: {fileID: 7944621890737555855}
   fireBalls:
   - {fileID: 0}
   - {fileID: 0}
