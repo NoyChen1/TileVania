@@ -11,10 +11,10 @@ public class CoinPickUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && !wasCollected)
+        if (collision.CompareTag("Player") && !wasCollected)
         {
             wasCollected = true;
-            FindObjectOfType<GameSession>().IncreasePlayerScore(coinScore);
+            GameSession.Instance.IncreasePlayerScore(coinScore);
             AudioSource.PlayClipAtPoint(coinSFX, Camera.main.transform.position);
             Destroy(gameObject);
         }

@@ -7,19 +7,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float attackCoolDown;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject[] fireBalls;
+    [SerializeField] float attackCoolDown;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject[] fireBalls;
 
-    private PlayerMovement PlayerMovement;
-    private float coolDownTimer = Mathf.Infinity;
+    PlayerMovement PlayerMovement;
+    float coolDownTimer = Mathf.Infinity;
 
-    private void Awake()
+    void Awake()
     {
         PlayerMovement = GetComponent<PlayerMovement>();
     }
 
-    private void Update()
+    void Update()
     {
         coolDownTimer += Time.deltaTime;
     }
@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Attack();
         }
-        
+
     }
 
     void Attack()
@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         fireBalls[FindFireBall()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
 
-    private int FindFireBall()
+    int FindFireBall()
     {
         for (int i = 0; i < fireBalls.Length; i++)
         {
@@ -54,3 +54,4 @@ public class PlayerAttack : MonoBehaviour
         return 0;
     }
 }
+

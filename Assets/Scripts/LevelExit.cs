@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 1f;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             StartCoroutine(LoadNextLevel());
         }
@@ -20,12 +21,16 @@ public class LevelExit : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
-        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
         {
-            nextSceneIndex = 0;
+            GameSession.Instance.EndGame();
         }
-
-        FindObjectOfType<ScenePersist>().ResetScenePersist();
-        SceneManager.LoadScene(nextSceneIndex);
+        else
+        {
+            ScenePersist.Instance.ResetScenePersist();
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 }
+
+

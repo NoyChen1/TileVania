@@ -12,13 +12,13 @@ public class Projectile : MonoBehaviour
     BoxCollider2D boxCollider;
     Animator animator;
 
-    private void Awake()
+    void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
         if (hit)
         {
@@ -35,12 +35,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         hit = true;
         boxCollider.enabled = false;
-        if (collision.tag == "Enemy")
+        if (collision.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
             AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position);
@@ -66,7 +65,7 @@ public class Projectile : MonoBehaviour
         transform.localScale = new Vector3(localScalex, transform.localScale.y, transform.localScale.z);
     }
 
-    private void Deactivate()
+    void Deactivate()
     {
         gameObject.SetActive(false);
     }

@@ -4418,16 +4418,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
---- !u!1 &1062922421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4135165651451106342, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-  m_PrefabInstance: {fileID: 1506984471542411919}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1109870578 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2802963937607712617, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-  m_PrefabInstance: {fileID: 1506984471542411919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1135849567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3591128567946244386, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
@@ -4552,11 +4542,6 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6050613798459530782, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
   m_PrefabInstance: {fileID: 2111385419}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1527323974 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4969346378394766830, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-  m_PrefabInstance: {fileID: 1506984471542411919}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1584198372 stripped
 GameObject:
@@ -11011,18 +10996,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSession
       objectReference: {fileID: 0}
-    - target: {fileID: 2991124744289807976, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_text
-      value: Can't Have More Than 3 Lives
-      objectReference: {fileID: 0}
-    - target: {fileID: 2991124744289807976, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2991124744289807976, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3076657696704786636, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0069778
@@ -11061,50 +11034,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3076657696704786636, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3803336494964435398, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -449
-      objectReference: {fileID: 0}
-    - target: {fileID: 3803336494964435398, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 169
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339762674791744703, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 376.5868
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339762674791744703, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 48.2609
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339762674791744703, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 203.55237
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339762674791744703, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -74
-      objectReference: {fileID: 0}
-    - target: {fileID: 7217063100841351276, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: lives.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7217063100841351276, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: lives.Array.data[0]
-      value: 
-      objectReference: {fileID: 1527323974}
-    - target: {fileID: 7217063100841351276, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: lives.Array.data[1]
-      value: 
-      objectReference: {fileID: 1109870578}
-    - target: {fileID: 7217063100841351276, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: lives.Array.data[2]
-      value: 
-      objectReference: {fileID: 1062922421}
-    - target: {fileID: 7968833738504830254, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

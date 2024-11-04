@@ -8,20 +8,16 @@ public class LivesPickUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !wasCollected)
+        if (collision.CompareTag("Player") && !wasCollected)
         {
-            if (FindObjectOfType<GameSession>().getLiveCount() == 3) 
-            { 
-                //do nothing
-            }
-            else
+            if (!(GameSession.Instance.getLiveCount() == 3))
             {
-                Debug.Log(FindObjectOfType<GameSession>().getLiveCount());
                 wasCollected = true;
                 Destroy(gameObject);
             }
-            FindObjectOfType<GameSession>().IncreasePlayerLives();
 
+            GameSession.Instance.IncreasePlayerLives();
         }
     }
 }
+

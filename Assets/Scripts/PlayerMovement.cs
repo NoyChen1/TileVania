@@ -15,17 +15,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float climbSpeed = 5F;
     [SerializeField] State state;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform bulletSpawn;
 
 
     bool playerHasHorizontalSpeed;
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
-    Animator animator; 
+    Animator animator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetColider;
     float gravityAtStart;
+
+    int groundMask;
+    int climbingMask;
+    int enemiesHazardsMask;
+
 
     public enum State
     {
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         Climb,
         Dead
     }
+
     void Start()
     {
         state = State.Idle;
@@ -43,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetColider = GetComponent<BoxCollider2D>();
         gravityAtStart = myRigidBody.gravityScale;
+
+        groundMask = LayerMask.GetMask("Ground");
+        climbingMask = LayerMask.GetMask("Climbing");
+        enemiesHazardsMask = LayerMask.GetMask("Enemies", "Hazards");
     }
 
     void Update()
@@ -61,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = State.Run;
         }
-        else if(myRigidBody.gravityScale == 0 && 
+        else if (myRigidBody.gravityScale == 0 &&
             (myRigidBody.velocity.y == 5 || myRigidBody.velocity.y == -5))
         {
             state = State.Climb;
@@ -100,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (state == State.Dead) { return; }
 
-        if (!myFeetColider.IsTouchingLayers(LayerMask.GetMask("Ground"))){ return; }
+        if (!myFeetColider.IsTouchingLayers(groundMask)) { return; }
         if (value.isPressed)
         {
             myRigidBody.velocity += new Vector2(0f, jumpSpeed);
@@ -109,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (!myFeetColider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!myFeetColider.IsTouchingLayers(climbingMask))
         {
             myRigidBody.gravityScale = gravityAtStart;
             return;
@@ -119,20 +127,20 @@ public class PlayerMovement : MonoBehaviour
         myRigidBody.velocity = climbVelocity;
         myRigidBody.gravityScale = 0;
 
-        animator.SetBool("isClimbing", (state == State.Climb)); 
+        animator.SetBool("isClimbing", (state == State.Climb));
     }
 
     void Die()
     {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
+        if (myBodyCollider.IsTouchingLayers(enemiesHazardsMask))
         {
             state = State.Dead;
             animator.SetTrigger("Dying");
             myRigidBody.velocity = deathKick;
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            GameSession.Instance.ProcessPlayerDeath();
         }
 
     }
 
-    public State getState() { return state; }  
+    public State getState() { return state; }
 }
