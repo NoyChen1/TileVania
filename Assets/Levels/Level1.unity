@@ -4352,6 +4352,50 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &854146857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 854146859}
+  - component: {fileID: 854146858}
+  m_Layer: 0
+  m_Name: GameInstallerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &854146858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854146857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5401a2dc35cb54c903660d1ed6cc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &854146859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854146857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 523.8302, y: 218.09435, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &989816996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3591128567946244386, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
@@ -4543,6 +4587,70 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6050613798459530782, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
   m_PrefabInstance: {fileID: 2111385419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1482103776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482103778}
+  - component: {fileID: 1482103777}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482103777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482103776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 854146858}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &1482103778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482103776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584198372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6050613798459530782, guid: d257fb91994f8e7488420a6a8ba93125, type: 3}
@@ -11244,11 +11352,11 @@ PrefabInstance:
       objectReference: {fileID: 380704764}
     - target: {fileID: 5046318637557783354, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.00819
+      value: -20.40443
       objectReference: {fileID: 0}
     - target: {fileID: 5046318637557783354, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3738074
+      value: 3.3744087
       objectReference: {fileID: 0}
     - target: {fileID: 5059223725440764976, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11356,3 +11464,5 @@ SceneRoots:
   - {fileID: 1506984471542411919}
   - {fileID: 1647976890}
   - {fileID: 3294258017333851992}
+  - {fileID: 854146859}
+  - {fileID: 1482103778}

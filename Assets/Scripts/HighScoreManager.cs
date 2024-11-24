@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HighScoreManager
+public class HighScoreManager : IHighScoreManager
 {
     
-    public void SaveHightScore(int score)
+    public void SaveHighScore(int highScore)
     {
         int currentHighScore = PlayerPrefs.GetInt("RecordScore", 0);
-        if (score > currentHighScore)
+        if (highScore > currentHighScore)
         {
-            PlayerPrefs.SetInt("RecordScore", score);
+            PlayerPrefs.SetInt("RecordScore", highScore);
             PlayerPrefs.Save();
         }
     }

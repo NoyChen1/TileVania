@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using Zenject;
 
 public class GameSession : MonoBehaviour
 {
     static GameSession instance;
-    HighScoreManager highScoreManager = new HighScoreManager();
+    private IHighScoreManager highScoreManager;
+    private IPlatformHandler platformHandler;
+
 
     [SerializeField] int playerLives = 3;
     [SerializeField] int playerScore = 0;
@@ -21,6 +21,14 @@ public class GameSession : MonoBehaviour
 
 
     float delayTime = 1f;
+
+
+    [Inject]
+    public void Construct(IHighScoreManager highScoreManager, IPlatformHandler platformHandler)
+    {
+        this.highScoreManager = highScoreManager;
+        this.platformHandler = platformHandler;
+    }
 
     public static GameSession Instance
     {
@@ -34,8 +42,24 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    private void SetPlatformHandlerBasedOnPlatform()
+    {
+        switch (Application.platform)
+        {
+            case RuntimePlatform.WebGLPlayer:
+                platformHandler = new WebGLPlatformHandler();
+                break;
+
+            default:
+                platformHandler = new DefaultPlatformHandler();
+                break;
+        }
+    }
+
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        /*
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -44,7 +68,13 @@ public class GameSession : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }
+
+            if (highScoreManager == null)
+            {
+                highScoreManager = new HighScoreManager();
+                SetPlatformHandlerBasedOnPlatform();
+            }
+        }*/
     }
     void Start()
     {
@@ -72,7 +102,7 @@ public class GameSession : MonoBehaviour
 
     void SaveHighScore()
     {
-        highScoreManager.SaveHightScore(playerScore);
+        highScoreManager.SaveHighScore(playerScore);
     }
 
     void UpdateUI()
@@ -98,6 +128,7 @@ public class GameSession : MonoBehaviour
     {
         if (playerLives == 3)
         {
+            //improve to tasks instead of coroutine
             StartCoroutine(LoadNoMoreLivesText());
         }
         else
@@ -125,14 +156,10 @@ public class GameSession : MonoBehaviour
 
     public void QuitGame()
     {
-#if UNITY_WEBGL
-        Application.ExternalEval("window.location.href='https://noychen1.itch.io/';");
-#else
-            Application.Quit();
-#endif
+        platformHandler.QuitGame();   
     }
 
-        void DesplayHighScore()
+    void DesplayHighScore()
     {
         var score = highScoreManager.GetHighScore();
         highScore.text = "The high score is: " + score;
