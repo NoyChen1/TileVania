@@ -11100,6 +11100,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2802963937607712617, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2846858018951486795, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
       propertyPath: m_Name
       value: GameSession
@@ -11143,6 +11147,10 @@ PrefabInstance:
     - target: {fileID: 3076657696704786636, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969346378394766830, guid: 5aa0539d68b89574aa61df9a173fa1de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11350,13 +11358,17 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 380704764}
+    - target: {fileID: 5029907762476652763, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5046318637557783354, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.40443
+      value: -18.107546
       objectReference: {fileID: 0}
     - target: {fileID: 5046318637557783354, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3744087
+      value: 2.370891
       objectReference: {fileID: 0}
     - target: {fileID: 5059223725440764976, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11374,6 +11386,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 380704764}
+    - target: {fileID: 6087056278556702375, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7627720927904562416, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.433197
@@ -11386,6 +11402,10 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 1794883975}
+    - target: {fileID: 8270423500672851534, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9114381852319595936, guid: 243055cd513ae6140b205529e8ed282e, type: 3}
       propertyPath: m_BoundingShape2D
       value: 

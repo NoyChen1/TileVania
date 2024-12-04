@@ -123,11 +123,25 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if(Mathf.Abs(moveInput.y) > 0.1f)
+        {
+            Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, moveInput.y * climbSpeed);
+            myRigidBody.velocity = climbVelocity;
+            myRigidBody.gravityScale = 0;
+        }
+        else
+        {
+            myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
+        }
+
+        /*
         Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, moveInput.y * climbSpeed);
         myRigidBody.velocity = climbVelocity;
         myRigidBody.gravityScale = 0;
+        */
 
         animator.SetBool("isClimbing", (state == State.Climb));
+    
     }
 
     void Die()

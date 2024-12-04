@@ -58,27 +58,20 @@ public class GameSession : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        /*
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
+        if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            if (highScoreManager == null)
-            {
-                highScoreManager = new HighScoreManager();
-                SetPlatformHandlerBasedOnPlatform();
-            }
-        }*/
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject); // Destroy duplicate instances
+        }
     }
     void Start()
     {
         UpdateUI();
+        UpdateLivesPanel();
         gameOverPanel.SetActive(false);
     }
     public void ProcessPlayerDeath()
@@ -113,6 +106,14 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    void UpdateLivesPanel()
+    {
+        for (int i = 0; i < playerLives; i++)
+        {
+            lives[i].gameObject.SetActive(true);
+        }
+    }
+
     void TriggerGameOverPanel()
     {
         gameOverPanel.SetActive(true);
@@ -128,7 +129,7 @@ public class GameSession : MonoBehaviour
     {
         if (playerLives == 3)
         {
-            //improve to tasks instead of coroutine
+            //**improve to tasks instead of coroutine
             StartCoroutine(LoadNoMoreLivesText());
         }
         else
@@ -164,10 +165,18 @@ public class GameSession : MonoBehaviour
         var score = highScoreManager.GetHighScore();
         highScore.text = "The high score is: " + score;
     }
+
     void DecreaseLife()
     {
         playerLives--;
         lives[playerLives].gameObject.SetActive(false);
+
+        StartCoroutine(WaitForDie());
+    }
+
+    IEnumerator WaitForDie()
+    {
+        yield return new WaitForSeconds(delayTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
